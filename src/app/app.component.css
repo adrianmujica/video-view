@@ -1,0 +1,6 @@
+div {
+  max-width: 768px;
+  padding: 0.5rem;
+  margin: 1.5rem auto;
+  border: 1px solid rgba(0,0,0,.125);
+}

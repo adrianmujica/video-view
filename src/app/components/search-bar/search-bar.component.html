@@ -1,0 +1,7 @@
+<div class="input-group mb-3">
+  <input type="text" #videoURL placeholder="YouTube URL"
+         class="form-control">
+  <button type="button" (click)="this.searchVideo.emit(videoURL.value.trim())" class="btn btn-primary">Search</button>
+</div>
+
+
