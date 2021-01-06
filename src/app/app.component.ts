@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
-import {URLValidator} from './util/url-validator';
+import {URLValidator} from '../util/url-validator';
+import {videoViewStore} from '../store/video-view-store';
 
 @Component({
   selector: 'app-root',
@@ -12,18 +13,26 @@ export class AppComponent {
 
   videoURL: SafeUrl;
 
+  store = videoViewStore;
+
   constructor(private sanitizer: DomSanitizer) {
   }
 
   searchVideo(videoURL: string) {
-    if (!videoURL) return;
+    if (!videoURL) {
+      return;
+    }
 
     const urlProcessed = URLValidator.processYouTubeURL(videoURL);
 
-    if (!urlProcessed) return;
+    if (!urlProcessed) {
+      return;
+    }
+
+    this.store.addToHistory(videoURL);
 
     this.videoURL = this.sanitizer.bypassSecurityTrustResourceUrl(urlProcessed);
-
   }
+
 
 }

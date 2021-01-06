@@ -1,5 +1,16 @@
 <div class="container">
-  <app-search-bar (searchVideo)="searchVideo($event)"></app-search-bar>
-  <app-video-view [videoURL]="videoURL" class="card-text"></app-video-view>
+  <div class="row">
+    <div *mobxAutorun class="col-lg-3">
+      <h5>History</h5>
+      <ul>
+        <li *ngFor="let item of store.history">
+          <a (click)="searchVideo(item)" href="#">{{item}}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-lg-9">
+      <app-search-bar (searchVideo)="searchVideo($event)"></app-search-bar>
+      <app-video-view [videoURL]="videoURL" class="card-text"></app-video-view>
+    </div>
+  </div>
 </div>
-

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+import {SafeUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-video-view',
@@ -9,7 +9,7 @@ import {DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser'
 export class VideoViewComponent implements OnInit {
 
   @Input()
-  videoURL: string;
+  videoURL: SafeUrl;
 
   ngOnInit(): void {
   }
