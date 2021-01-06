@@ -1,6 +1,8 @@
 <div class="input-group mb-3">
   <input type="text" [formControl]="videoURL" placeholder="YouTube URL"
-         class="form-control" (keyup)="onKeyUp($event)" >
-  <button type="button" (click)="this.searchVideo.emit(videoURL.value.trim())" class="btn btn-primary">Search</button>
+         class="form-control" (keyup)="onKeyUp($event)">
+  <button type="button" (click)="this.searchVideo.emit(videoURL.value.trim())" class="btn btn-primary">
+    <i class="material-icons">search</i>
+  </button>
 </div>
 

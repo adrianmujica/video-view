@@ -1,0 +1,6 @@
+<h5>History</h5>
+<ul>
+  <li *ngFor="let item of store.history">
+    <a (click)="videoURL.emit(item)" href="#">{{item}}</a>
+  </li>
+</ul>

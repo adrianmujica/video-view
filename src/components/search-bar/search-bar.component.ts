@@ -10,6 +10,7 @@ export class SearchBarComponent implements OnInit {
 
   @Output()
   searchVideo = new EventEmitter<string>();
+
   videoURL = new FormControl();
 
   ngOnInit(): void {

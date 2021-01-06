@@ -1,14 +1,16 @@
-import {action, makeObservable, observable} from 'mobx';
-import {Injectable} from '@angular/core';
+import {action, observable} from 'mobx';
 
 export class VideoViewStore {
 
   @observable history: string[] = [];
+  @observable bookmarks: string[] = [];
 
   @action addToHistory(videoURL: string) {
-    if (this.history.includes(videoURL)) return;
-
     this.history = [...this.history, videoURL];
+  }
+
+  @action addToBookmarks(videoURL: string) {
+    this.bookmarks = [...this.bookmarks, videoURL];
   }
 }
 

@@ -13,8 +13,6 @@ export class AppComponent {
 
   videoURL: SafeUrl;
 
-  store = videoViewStore;
-
   constructor(private sanitizer: DomSanitizer) {
   }
 
@@ -23,16 +21,25 @@ export class AppComponent {
       return;
     }
 
-    const urlProcessed = URLValidator.processYouTubeURL(videoURL);
+    const safeUrl = this.getSafeURL(videoURL);
 
-    if (!urlProcessed) {
+    if (!safeUrl) {
       return;
     }
 
-    this.store.addToHistory(videoURL);
+    videoViewStore.addToHistory(videoURL);
 
-    this.videoURL = this.sanitizer.bypassSecurityTrustResourceUrl(urlProcessed);
+    this.videoURL = safeUrl;
   }
 
+  getSafeURL(videoURL: string): SafeUrl {
+    const urlProcessed = URLValidator.processYouTubeURL(videoURL);
+
+    if (!urlProcessed) {
+      return null;
+    }
+
+    return this.sanitizer.bypassSecurityTrustResourceUrl(urlProcessed);
+  }
 
 }
