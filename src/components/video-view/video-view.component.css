@@ -1,9 +1,8 @@
-div {
-  height: 512px;
-}
-.container-md{
+iframe{
   border: 1px solid rgba(0,0,0,.125);
 }
-iframe{
-  border: none;
+
+.btn-link {
+  padding-bottom: 0px;
+  text-decoration: none;
 }

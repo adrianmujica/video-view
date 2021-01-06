@@ -39,7 +39,12 @@ export class AppComponent {
       return null;
     }
 
+    videoViewStore.setCurrentVideo(videoURL);
+
     return this.sanitizer.bypassSecurityTrustResourceUrl(urlProcessed);
   }
 
+  bookmarkCurrentVideo() {
+    videoViewStore.bookmarkCurrentVideo();
+  }
 }

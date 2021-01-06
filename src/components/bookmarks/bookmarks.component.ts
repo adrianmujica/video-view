@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {videoViewStore} from '../../store/video-view-store';
 
 @Component({
   selector: 'app-bookmarks',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookmarksComponent implements OnInit {
 
-  constructor() { }
+
+  store = videoViewStore;
 
   ngOnInit(): void {
   }

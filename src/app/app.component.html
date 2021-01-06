@@ -5,7 +5,7 @@
     </div>
     <div class="container-md col-lg-9">
       <app-search-bar (searchVideo)="searchVideo($event)"></app-search-bar>
-      <app-video-view [videoURL]="videoURL" class="card-text"></app-video-view>
+      <app-video-view [videoURL]="videoURL" (bookmarkVideo)="bookmarkCurrentVideo()" class="card-text"></app-video-view>
       <app-bookmarks></app-bookmarks>
     </div>
   </div>

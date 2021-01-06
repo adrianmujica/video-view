@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {SafeUrl} from '@angular/platform-browser';
+import {videoViewStore} from '../../store/video-view-store';
 
 @Component({
   selector: 'app-video-view',
@@ -8,8 +9,13 @@ import {SafeUrl} from '@angular/platform-browser';
 })
 export class VideoViewComponent implements OnInit {
 
+  store = videoViewStore;
+
   @Input()
   videoURL: SafeUrl;
+
+  @Output()
+  bookmarkVideo = new EventEmitter<void>();
 
   ngOnInit(): void {
   }
