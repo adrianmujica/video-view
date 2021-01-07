@@ -1,15 +1,21 @@
-<div *ngIf="!!videoURL" class="container-md">
+<div *ngIf="!!videoURL; else withoutContent">
   <button *mobxAutorun (click)="bookmarkVideo.emit()" type="button" class="btn btn-link">
     <span class="row">
       <i class="material-icons">bookmark</i>
       {{store.bookmarked() ? 'Remove from bookmarks' : 'Bookmark this video'}}
     </span>
   </button>
-</div>
 
 <iframe width="100%" height="512px"
         [src]="videoURL" frameborder=”0″ allowfullscreen
         allow="clipboard-write;"></iframe>
+</div>
+
+<ng-template #withoutContent>
+  <iframe width="100%" height="512px"
+          frameborder=”0″></iframe>
+</ng-template>
+
 
 
 

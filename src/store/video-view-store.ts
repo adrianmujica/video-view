@@ -6,8 +6,13 @@ export class VideoViewStore {
   @observable bookmarks: string[] = [];
   @observable currentVideo: string;
 
+  constructor(bookmarks: string[]) {
+    this.bookmarks = bookmarks;
+  }
+
   @action addToHistory(videoURL: string) {
     this.history = [...this.history, videoURL];
+    localStorage.setItem('history', JSON.stringify(this.history));
   }
 
   @action setCurrentVideo(videoURL: string) {
@@ -17,17 +22,21 @@ export class VideoViewStore {
   @action bookmarkCurrentVideo() {
     const index = this.bookmarks.indexOf(this.currentVideo);
     if (index > -1) {
-    this.bookmarks.splice(index, 1);
+      this.bookmarks.splice(index, 1);
     } else {
-    this.bookmarks = [...this.bookmarks, this.currentVideo];
+      this.bookmarks = [...this.bookmarks, this.currentVideo];
     }
 
+    localStorage.setItem('bookmarks', JSON.stringify(this.bookmarks));
   }
 
-  @computed bookmarked(): boolean{
+  @computed bookmarked(): boolean {
     return this.bookmarks.includes(this.currentVideo);
   }
 
 }
 
-export const videoViewStore = new VideoViewStore();
+const bookmarksStored = JSON.parse(localStorage.getItem('bookmarks'));
+const videoViewStore = new VideoViewStore(!!bookmarksStored ? bookmarksStored : []);
+
+export {videoViewStore};
