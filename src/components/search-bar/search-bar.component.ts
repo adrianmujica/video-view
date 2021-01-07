@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {URLValidator} from '../../util/url-validator';
 
 @Component({
   selector: 'app-search-bar',
@@ -11,15 +12,13 @@ export class SearchBarComponent implements OnInit {
   @Output()
   searchVideo = new EventEmitter<string>();
 
-  videoURL = new FormControl();
+  form: FormGroup;
 
   ngOnInit(): void {
-  }
-
-  onKeyUp(event: KeyboardEvent) {
-    if (event.key === 'Enter') {
-      this.searchVideo.emit(this.videoURL.value.trim());
-    }
+    this.form = new FormGroup({
+      videoURL: new FormControl('',
+        [Validators.required, Validators.pattern(URLValidator.YOUTUBE_URL_REGEX)])
+    });
   }
 
 }

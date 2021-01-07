@@ -1,8 +1,15 @@
-<div class="input-group mb-3">
-  <input type="text" [formControl]="videoURL" placeholder="YouTube URL"
-         class="form-control" (keyup)="onKeyUp($event)">
-  <button type="button" (click)="this.searchVideo.emit(videoURL.value.trim())" class="btn btn-primary">
-    <i class="material-icons">search</i>
-  </button>
-</div>
+  <form (submit)="this.searchVideo.emit(this.form.get('videoURL').value.trim())" [formGroup]="form" action="#">
+    <div class="input-group mb-3">
+
+      <input type="text" formControlName="videoURL" placeholder="YouTube URL"
+             class="form-control" >
+
+      <button type="submit" [disabled]="form.invalid"
+              class="btn btn-primary">
+        <i class="material-icons">search</i>
+      </button>
+
+    </div>
+  </form>
+
 
