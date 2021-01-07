@@ -19,6 +19,10 @@ export class SearchBarComponent implements OnInit {
       videoURL: new FormControl('',
         [Validators.required, Validators.pattern(URLValidator.YOUTUBE_URL_REGEX)])
     });
+
+    this.form.controls.videoURL.valueChanges.subscribe(
+      (value) => this.form.controls.videoURL.setValue(value.trim(), {emitEvent: false}));
+
   }
 
 }
