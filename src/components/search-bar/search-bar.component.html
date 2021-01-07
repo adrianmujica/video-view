@@ -1,4 +1,4 @@
-  <form (submit)="this.searchVideo.emit(this.form.get('videoURL').value.trim())" [formGroup]="form" action="#">
+  <form (submit)="this.searchVideo.emit(this.form.get('videoURL').value)" [formGroup]="form" action="#">
     <div class="input-group mb-3">
 
       <input type="text" formControlName="videoURL" placeholder="YouTube URL"
