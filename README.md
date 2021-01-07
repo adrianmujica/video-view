@@ -4,6 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Node: 10.15.1
 
+Web app running here: [https://adrianmujica.github.io/video-view/](https://adrianmujica.github.io/video-view/)
+
 ## Explanation
 
 The goal of this exercise is to build a little application composed of an input form and a video view (player or empty square if there is nothing to display) below. 
