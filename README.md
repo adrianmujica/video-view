@@ -2,26 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.13.
 
-## Development server
+Node: 10.15.1
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Explanation
 
-## Code scaffolding
+The goal of this exercise is to build a little application composed of an input form and a video view (player or empty square if there is nothing to display) below. 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- The input form takes a YouTube video URL (not embed url) as entry and displays the YouTube video inside the video view. 
+- Additionally, each request should create an entry in a local history list shown on the left side of 
+    the page. If an item of the history is clicked, the related video should be shown again. 
+- A bookmark button will be added. When clicking on it, the URL of the playing video will be added to bookmarks. Another button will give access to the list of all the bookmarks. The position of this button is up to the candidate.
+- The list of bookmarks and history will be stored into the JavaScript native localStorage. When the page is loaded, an indicator (label or other) should show the number of bookmarks in the localStorage.
