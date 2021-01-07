@@ -8,7 +8,6 @@ import {videoViewStore} from '../../store/video-view-store';
 })
 export class BookmarksComponent implements OnInit {
 
-
   store = videoViewStore;
 
   ngOnInit(): void {

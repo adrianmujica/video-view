@@ -21,10 +21,10 @@ export class VideoViewStore {
 
   @action bookmarkCurrentVideo() {
     const index = this.bookmarks.indexOf(this.currentVideo);
-    if (index > -1) {
-      this.bookmarks.splice(index, 1);
-    } else {
+    if (index === -1) {
       this.bookmarks = [...this.bookmarks, this.currentVideo];
+    } else {
+      this.bookmarks.splice(index, 1);
     }
 
     localStorage.setItem('bookmarks', JSON.stringify(this.bookmarks));

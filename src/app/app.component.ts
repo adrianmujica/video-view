@@ -1,4 +1,4 @@
-import {Component, SecurityContext} from '@angular/core';
+import {Component} from '@angular/core';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 import {URLValidator} from '../util/url-validator';
 import {videoViewStore} from '../store/video-view-store';
